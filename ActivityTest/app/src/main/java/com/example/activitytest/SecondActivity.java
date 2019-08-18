@@ -16,11 +16,19 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+       final Intent intent = this.getIntent();
+        // 获取数据
+       final String extraDataContent = intent.getStringExtra("extra_data");
+
+
         Button button3 = (Button)findViewById(R.id.button_3);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(SecondActivity.this, "you clicked button3", 3).show();
+                Toast.makeText(SecondActivity.this, ("you clicked button3\n" + extraDataContent), 3).show();
+                intent.putExtra("data_return", "hello firstActivity");
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
 //        Intent;

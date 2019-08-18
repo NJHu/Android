@@ -1,6 +1,7 @@
 package com.example.activitytest;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -41,6 +42,9 @@ public class FirstActivity extends AppCompatActivity {
 
                 // 构建Intent, 显式
 //                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+//                String data = "hello, secondActivity";
+//                // 传递数据
+//                intent.putExtra("extra_data", data);
 //                startActivity(intent);
 
                 // 构建Intent, 隐式
@@ -58,9 +62,16 @@ public class FirstActivity extends AppCompatActivity {
 //                startActivity(intent);
 
                 // 打电话
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:10086"));
-                startActivity(intent);
+//                Intent intent = new Intent(Intent.ACTION_DIAL);
+//                intent.setData(Uri.parse("tel:10086"));
+//                startActivity(intent);
+
+                // 构建Intent, 显式
+                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+                String data = "hello, secondActivity";
+                // 传递数据
+                intent.putExtra("extra_data", data);
+                startActivityForResult(intent, 1);
             }
         });
     }
@@ -85,5 +96,19 @@ public class FirstActivity extends AppCompatActivity {
             default:
         }
         return true;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch (requestCode) {
+            case 1:{
+                if (resultCode == RESULT_OK) {
+                    String returnedData = data.getStringExtra("data_return");
+                    Toast.makeText(this, returnedData, 3).show();
+                }
+            }
+            break;
+            default:
+        }
     }
 }
