@@ -33,4 +33,12 @@ public class SecondActivity extends AppCompatActivity {
         });
 //        Intent;
     }
+
+    @Override
+    public void onBackPressed() {
+        final Intent intent = this.getIntent();
+        intent.putExtra("data_return", "hello firstActivity");
+        setResult(RESULT_OK, intent);
+        super.onBackPressed();
+    }
 }
