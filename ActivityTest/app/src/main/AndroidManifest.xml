@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.activitytest">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".FirstActivity"
+            android:label="This is FirstActivity">
+            <intent-filter>
+
+                <!-- 主界面 -->
+                <action android:name="android.intent.action.MAIN" />
+                <!-- 启动默认 -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SecondActivity">
+            <intent-filter>
+
+                <!-- action标识 -->
+                <action android:name="com.example.activitytest.ACTION_START" />
+                <!-- category 标识 -->
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.example.activitytest.MY_CATEGORY" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ThirdActivity">
+            <!--<intent-filter>-->
+                <!--重写系统的-->
+                <!--<action android:name="android.intent.action.VIEW" />-->
+                <!--重写系统的-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+                <!--数据协议-->
+                <!--<data android:scheme="http" />-->
+            <!--</intent-filter>-->
+        </activity>
+    </application>
+
+</manifest>
