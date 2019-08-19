@@ -1,4 +1,4 @@
-package com.example.uilayouttest;
+package com.example.uicustomviews;
 
 import androidx.appcompat.app.AppCompatActivity;
 

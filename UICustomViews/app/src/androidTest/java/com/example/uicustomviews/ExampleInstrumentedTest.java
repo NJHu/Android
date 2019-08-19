@@ -1,4 +1,4 @@
-package com.example.uilayouttest;
+package com.example.uicustomviews;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.uilayouttest", appContext.getPackageName());
+        assertEquals("com.example.uicustomviews", appContext.getPackageName());
     }
 }
