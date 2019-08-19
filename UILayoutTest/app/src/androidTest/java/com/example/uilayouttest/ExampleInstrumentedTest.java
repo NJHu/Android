@@ -1,7 +1,6 @@
-package com.example.uiwidgettest;
+package com.example.uilayouttest;
 
 import android.content.Context;
-
 import androidx.test.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 
@@ -22,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.uiwidgettest", appContext.getPackageName());
+        assertEquals("com.example.uilayouttest", appContext.getPackageName());
     }
 }
