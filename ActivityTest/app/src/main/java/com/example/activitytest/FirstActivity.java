@@ -15,14 +15,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
     private static final String TAG = "FirstActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
         Log.d(TAG, "onCreate: test");
-
+        Log.d(TAG, "This task id is: " + getTaskId());
         // 根据id获取按钮
         Button button1 = (Button)findViewById(R.id.button_1);
         // 添加点击事件
@@ -67,11 +67,14 @@ public class FirstActivity extends AppCompatActivity {
 //                startActivity(intent);
 
                 // 构建Intent, 显式
+//                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+//                String data = "hello, secondActivity";
+//                // 传递数据
+//                intent.putExtra("extra_data", data);
+//                startActivityForResult(intent, 1);
+
                 Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
-                String data = "hello, secondActivity";
-                // 传递数据
-                intent.putExtra("extra_data", data);
-                startActivityForResult(intent, 1);
+                startActivity(intent);
             }
         });
     }
@@ -110,5 +113,11 @@ public class FirstActivity extends AppCompatActivity {
             break;
             default:
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: ");
     }
 }

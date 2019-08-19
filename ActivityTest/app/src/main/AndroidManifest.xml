@@ -11,7 +11,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".FirstActivity"
-            android:label="This is FirstActivity">
+            android:label="This is FirstActivity"
+            android:launchMode="standard">
             <intent-filter>
 
                 <!-- 主界面 -->
@@ -20,7 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity">
+        <activity android:name=".SecondActivity"
+            android:launchMode="singleInstance">
             <intent-filter>
 
                 <!-- action标识 -->
