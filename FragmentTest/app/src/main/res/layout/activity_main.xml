@@ -7,22 +7,10 @@
 
     <fragment
         android:id="@+id/left_fragment"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
         android:name="com.example.fragmenttest.LeftFragment" />
 
-    <!--<fragment-->
-        <!--android:id="@+id/right_layout"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_weight="1"-->
-        <!--android:name="com.example.fragmenttest.RightFragment" />-->
+    
 
-    <FrameLayout
-        android:id="@+id/right_layout"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="#EEEEEE"/>
 </LinearLayout>
