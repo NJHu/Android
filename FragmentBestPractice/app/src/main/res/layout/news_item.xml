@@ -1,0 +1,12 @@
+<TextView
+    android:id="@+id/news_title"
+    android:maxLines="1"
+    android:ellipsize="end"
+    android:textSize="18sp"
+    android:paddingLeft="10dp"
+    android:paddingBottom="15dp"
+    android:paddingTop="15dp"
+    android:paddingRight="10dp"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"></TextView>
