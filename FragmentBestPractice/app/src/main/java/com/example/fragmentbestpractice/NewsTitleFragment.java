@@ -78,6 +78,7 @@ public class NewsTitleFragment extends Fragment {
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_item, parent, false);
+//            View view = getLayoutInflater().from(getContext()).inflate(R.layout.news_item, parent, false);
             final ViewHolder holder = new ViewHolder(view);
 
             view.setOnClickListener(new View.OnClickListener() {
