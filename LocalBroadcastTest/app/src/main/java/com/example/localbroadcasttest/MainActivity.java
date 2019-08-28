@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         localBroadcastManager = LocalBroadcastManager.getInstance(this);
-        IntentFilter intentFilter = new IntentFilter("com.example.action.mylocal");
+        IntentFilter intentFilter = new IntentFilter("com.example.action.mylocalbroadcase");
         localReceiver = new LocalReceiver();
         localBroadcastManager.registerReceiver(localReceiver, intentFilter);
 
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent("com.example.action.mylocal");
+                Intent intent = new Intent("com.example.action.mylocalbroadcase");
                 localBroadcastManager.sendBroadcast(intent);
             }
         });
