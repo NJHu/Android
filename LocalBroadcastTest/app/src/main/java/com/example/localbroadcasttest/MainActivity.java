@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         localBroadcastManager = LocalBroadcastManager.getInstance(this);
         IntentFilter intentFilter = new IntentFilter("com.example.action.mylocalbroadcase");
+        
         localReceiver = new LocalReceiver();
         localBroadcastManager.registerReceiver(localReceiver, intentFilter);
 
