@@ -2,10 +2,12 @@ package com.example.sharedprefrencespractice;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,14 +25,19 @@ public class MainActivity extends AppCompatActivity {
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                SharedPreferences.Editor editor = MainActivity.this.getSharedPreferences("data", MODE_PRIVATE).edit();
+                editor.putString("name", "Tom");
+                editor.putInt("age", 12);
+                editor.putBoolean("married", false);
+                editor.apply();
             }
         });
 
         readBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                SharedPreferences preferences = MainActivity.this.getSharedPreferences("data", MODE_PRIVATE);
+                Toast.makeText(MainActivity.this, preferences.getString("name", "") + preferences.getInt("age", 0) + preferences.getBoolean("married", true) , Toast.LENGTH_SHORT).show();
             }
         });
 
