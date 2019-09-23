@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -23,6 +24,8 @@ import java.net.ResponseCache;
 import java.net.URL;
 import java.util.List;
 
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -43,7 +46,40 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 //                MainActivity.this.sendRequest();
-                MainActivity.this.sendOkRequest();
+//                MainActivity.this.sendOkRequest();
+//                  MainActivity.this.sendUtilRequest();;
+
+                MainActivity.this.sendOkHtRequest();;
+            }
+        });
+    }
+
+    private void sendOkHtRequest() {
+        HttpUtil.sendOkHttpRequest("https://www.baidu.com", new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                String resStr = response.body().string();
+                Log.d(TAG, "onResponse: " + response.body().string());
+            }
+        });
+    }
+
+    private void sendUtilRequest(){
+        HttpUtil.sendHttpRequest("https://www.baidu.com", new HttpUtil.HttpCallbackListener() {
+            @Override
+            public void onFinish(String response) {
+                Log.d(TAG, "onFinish: " + response);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                Log.d(TAG, "onError: ");
+                e.printStackTrace();
             }
         });
     }
