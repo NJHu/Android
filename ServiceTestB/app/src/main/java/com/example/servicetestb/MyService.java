@@ -2,21 +2,35 @@ package com.example.servicetestb;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
 public class MyService extends Service {
     private static final String TAG = "MyService";
+
+    private DownloadBinder downloadBinder = new DownloadBinder();
     public MyService() {
         Log.d(TAG, "MyService: ");
     }
 
-    
+    class DownloadBinder extends Binder {
+        public void startDownload() {
+            Log.d(TAG, "startDownload: ");
+        }
+        public int getProgress() {
+            Log.d(TAG, "getProgress: ");
+            return 0;
+        }
+    }
+
+
     @Override
     public IBinder onBind(Intent intent) {
         Log.d(TAG, "onBind: ");
+        return downloadBinder;
         // TODO: Return the communication channel to the service.
-        throw new UnsupportedOperationException("Not yet implemented");
+//        throw new UnsupportedOperationException("Not yet implemented");
     }
 
     @Override
