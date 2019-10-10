@@ -37,7 +37,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        startServiceTest();
+        bindServiceTest();
+        startIntentServiceTest();
+    }
 
+    private void startIntentServiceTest(){
+
+        ((Button) findViewById(R.id.start_intent_service)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MyIntentService.class);
+                MainActivity.this.startService(intent);
+            }
+        });
+
+        ((Button) findViewById(R.id.stop_intent_service)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MyIntentService.class);
+                MainActivity.this.stopService(intent);
+            }
+        });
+    }
+
+    private void startServiceTest(){
         ((Button) findViewById(R.id.start_service)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,11 +77,9 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.stopService(intent);
             }
         });
-
-        bindService();
     }
 
-    private void bindService() {
+    private void bindServiceTest() {
         ((Button) findViewById(R.id.bind_service)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
