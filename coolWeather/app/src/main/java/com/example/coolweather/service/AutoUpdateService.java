@@ -39,7 +39,7 @@ public class AutoUpdateService extends Service {
         updateWeather();
         updateBingPic();
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        int anHour = 8 * 3600 * 1000;
+        int anHour = 1 * 10 * 1000;
         long triggerAtTime = SystemClock.elapsedRealtime() + anHour;
         Intent intent1 = new Intent(this, AutoUpdateService.class);
         PendingIntent pendingIntent = PendingIntent.getService(this, 0, intent1, 0);
@@ -86,7 +86,7 @@ public class AutoUpdateService extends Service {
             @Override
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                 final String bingPic = response.body().string();
-                SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(WeatherActivity.this).edit();
+                SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(AutoUpdateService.this).edit();
                 editor.putString("bing_pic", bingPic);
                 editor.apply();
             }
