@@ -5,6 +5,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.coolweather.gson.Forecast;
 import com.example.coolweather.gson.Weather;
+import com.example.coolweather.service.AutoUpdateService;
 import com.example.coolweather.util.HttpUnit;
 import com.example.coolweather.util.Utility;
 
@@ -179,6 +181,9 @@ public class WeatherActivity extends AppCompatActivity {
         comfortText.setText("舒适度: " + weather.suggestion.comfort.info);
         carWashText.setText("洗车指数: " + weather.suggestion.carWash.info);
         sportText.setText("运动建议: " + weather.suggestion.sport.info);
+
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 
     private void loadBingPic() {
