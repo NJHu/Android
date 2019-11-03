@@ -1,6 +1,6 @@
 
 ### 读后感
-- [《第二行代码》](https://blog.csdn.net/guolin_blog/article/details/52032038)
+- [《第一行代码》](https://blog.csdn.net/guolin_blog/article/details/52032038)
   - [郭霖的专栏](https://blog.csdn.net/guolin_blog)
   - [郭霖GitHub](https://github.com/guolin)
 
